@@ -4,4 +4,6 @@ set(TARGET_NAME DelaunayDemo)
 
 project(TARGET_NAME)
 
+#add_subdirectory(thirdparty)
+
 add_subdirectory(DelaunayDemo)
