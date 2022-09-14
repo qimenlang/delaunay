@@ -23,6 +23,9 @@ struct Edge
 	template<typename U>
 	friend std::ostream &operator <<(std::ostream &str, const Edge<U> &e);
 
+	double GetEdgeBaryCoord(const VertexType& sample_point) const;
+	bool containsVertex(const VertexType& v) const;
+
 	const VertexType *v;
 	const VertexType *w;
 	bool isBad = false;

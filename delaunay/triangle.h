@@ -1,6 +1,8 @@
 #ifndef H_TRIANGLE
 #define H_TRIANGLE
 
+#include <array>
+
 #include "numeric.h"
 #include "vector2.h"
 #include "edge.h"
@@ -28,6 +30,8 @@ struct Triangle
 
 	template<typename U>
 	friend std::ostream &operator <<(std::ostream &str, const Triangle<U> &t);
+
+	std::array<T, 3> GetBaryCentricCoord(const VertexType& v)const;
 
 	const VertexType *a;
 	const VertexType *b;

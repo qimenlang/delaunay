@@ -36,6 +36,10 @@ Vector2<T>::norm2() const
 {
 	return x * x + y * y;
 }
+template<typename T>
+T Vector2<T>::len()const {
+	return std::sqrt(norm2());
+}
 
 template<typename T>
 bool
@@ -50,6 +54,20 @@ operator <<(std::ostream &str, const Vector2<U> &v)
 {
 	return str << "Point x: " << v.x << " y: " << v.y;
 }
+template<typename T>
+T Vector2<T>::cross(const Vector2<T>& v) const {
+	return x * v.y - v.x * y;
+}
+
+template<typename T>
+T Vector2<T>::dot(const Vector2<T>& v) const {
+	return x * v.x + y * v.y;
+}
+template<typename T>
+Vector2<T> Vector2<T>::operator-(const Vector2<T>& v) {
+	return Vector2<T>(x - v.x, y - v.y);
+}
+
 
 template struct Vector2<float>;
 template struct Vector2<double>;

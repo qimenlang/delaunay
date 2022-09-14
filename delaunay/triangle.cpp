@@ -58,6 +58,19 @@ operator <<(std::ostream &str, const Triangle<U> &t)
 			*t.c << '\n';
 }
 
+
+template<typename T>
+std::array<T, 3> Triangle<T>::GetBaryCentricCoord(const VertexType& v) const {
+	std::array<T, 3> coords;
+	coords[0]=
+	(-(v.x - b->x) * (c->y - b->y) + (v.y - b->y) * (c->x - b->x)) / (-(a->x - b->x) * (c->y - b->y) + (a->y - b->y) * (c->x - b->x));
+	coords[1] =
+		(-(v.x - c->x) * (a->y - c->y) + (v.y - c->y) * (a->x - c->x)) / (-(b->x - c->x) * (a->y - c->y) + (b->y - c->y) * (a->x - c->x));
+	coords[2] = 1.0 - coords[0] - coords[1];
+	return coords;
+}
+
+
 template struct Triangle<float>;
 template struct Triangle<double>;
 

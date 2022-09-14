@@ -21,10 +21,17 @@ struct Vector2
 	T dist2(const Vector2<T> &v) const;
 	T dist(const Vector2<T> &v) const;
 	T norm2() const;
+	T cross(const Vector2<T>&) const;
+	T dot(const Vector2<T>&) const;
+	T len()const;
+
 
 	Vector2 &operator=(const Vector2<T>&) = default;
 	Vector2 &operator=(Vector2&&) = default;
 	bool operator ==(const Vector2<T> &v) const;
+
+	Vector2<T> operator-(const Vector2<T>&);
+
 	template<typename U>
 	friend std::ostream &operator <<(std::ostream &str, const Vector2<U> &v);
 
